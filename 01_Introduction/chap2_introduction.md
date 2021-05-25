@@ -137,7 +137,6 @@ echo invString(3 , 'mississippi'); // mississiippi
 
 ```
 
-
 ## Passage par référence 
 
 Vous pouvez passer une variable par référence à une fonction pour modifier sa valeur dans le contexte parent.
@@ -146,18 +145,41 @@ Vous pouvez passer une variable par référence à une fonction pour modifier sa
 function increment(&$var) {
   $var++;
 }
-$a=5;
+
+$a=5; // contexte parent
 increment ($a); // affichera 6
 ```
 
 ### Exercice fonction permutation
 
-Créez une fonction **permute** qui permute circulairement dans le script courant les trois valeurs suivantes :
+Créez une fonction **permute** qui permute circulairement dans le script courant les trois valeurs suivantes 
 
 ```php
 $a = 1;
 $b = 2;
 $c = 3;
+
+ // permute => modifier le
+```
+
+### Correction
+
+```php
+
+$a = 1;
+$b = 2;
+$c = 3;
+
+function permute(&$a, &$b, &$c){
+    // list fonction php qui assigne terme à terme des valeurs dans un tableau
+    // list($x, $y, $z) = [11,12,13]; 
+
+    list($a, $b, $c) = [$c, $a, $b];
+}
+
+permute($a, $b, $c);
+
+echo "a : $a, b: $b, c : $c \n" ; 
 ```
 
 ### Portée statique
