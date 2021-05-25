@@ -118,11 +118,22 @@ Créez une fonction qui inverse une chaîne de caractères.
 
 ```php
 
-function invString(  string $content){
+function invString(string $content){
     // todo ...
 }
 
 echo invString('mississippi'); // ippississim
+
+```
+
+Ajoutez un paramètre à la fonction précédente pour inverser qu'une partie de la chaîne de caractères, reprenez le code de la fonction dans un autre fichier.
+
+```php
+function invString(int $len, string $content){
+    // todo ...
+}
+
+echo invString(3 , 'mississippi'); // mississiippi
 
 ```
 
