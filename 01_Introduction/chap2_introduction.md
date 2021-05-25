@@ -43,7 +43,7 @@ Le code PHP s'insère facilement dans une page HTML. Voici un exemple de code da
 </html>
 ```
 
-Si le PHP n'est pas écrit dans une page HTML la balise fermante n'est pas obligatoire :
+Si le PHP n'est pas écrit dans une page HTML la balise fermante n'est pas obligatoire, attention à bien coller la cote ouvrante tout en haut dans le fichier, sinon PHP interprétera les espaces dans des caractères :
 
 ```php
 <?php
