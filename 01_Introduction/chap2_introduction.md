@@ -190,10 +190,21 @@ Une variable statique a une portée locale uniquement, cependant elle ne perd pa
 
 function increment_static()
 {
-    static $a = 0;
-    echo $a;
+    static $a = 0; // c'est dans la fonction uniquement qu'elle garde la mémoire de la valeur.
     $a++;
+    echo $a;
 }
+
+increment_static(); // 1
+increment_static(); // 2
+increment_static(); // 3
+increment_static(); // 4
+
+// sans static $a = 0 la fonction affiche 1 tout le temps
+// increment_static(); // 1
+// increment_static(); // 1
+// increment_static(); // 1
+// increment_static(); // 1
 ```
 
 ### Exercice suite de fibonacci
