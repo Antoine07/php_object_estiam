@@ -112,6 +112,21 @@ echo numberLetter('i','mississippi'); // 4
 
 ```
 
+## Exercice inverser
+
+Créez une fonction qui inverse une chaîne de caractères.
+
+```php
+
+function invString(  string $content){
+    // todo ...
+}
+
+echo invString('mississippi'); // ippississim
+
+```
+
+
 ## Passage par référence 
 
 Vous pouvez passer une variable par référence à une fonction pour modifier sa valeur dans le contexte parent.
