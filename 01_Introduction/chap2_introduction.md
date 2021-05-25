@@ -98,6 +98,18 @@ function foo(){
 }
 ```
 
+## Exercice calcul longueur d'une chaîne de caractères
+
+Créez une fonction permettant compter le nombre d'occurence(s) d'une lettre donnée dans une chaîne de caractères.
+
+```php
+
+function numberLetter( string $letter, string $content){
+    // todo ...
+}
+
+```
+
 ## Passage par référence 
 
 Vous pouvez passer une variable par référence à une fonction pour modifier sa valeur dans le contexte parent.
