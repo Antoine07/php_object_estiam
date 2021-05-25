@@ -108,6 +108,8 @@ function numberLetter( string $letter, string $content){
     // todo ...
 }
 
+echo numberLetter('i','mississippi'); // 4
+
 ```
 
 ## Passage par référence 
