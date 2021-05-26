@@ -648,6 +648,40 @@ zipper_str('bonjours', 'aurevoir'); // [['b', 'a'], ['o', 'u'], ...]
 
 ```
 
+### Correction
+
+```php
+
+function zipper_str(string $str1, string $str2, bool $out = false): array | string
+{
+    if (strlen($str1) != strlen($str2)) {
+        return [];
+    }
+
+    if($out == true){
+        $res = '';
+        for($i = 0; $i < strlen($str1) ; $i++){
+            $res .= $str1[$i] . $str2[$i];
+        }
+
+        return $res;
+    }
+
+    $res = [];
+
+    for($i = 0; $i < strlen($str1) ; $i++){
+        $res[] = [$str1[$i], $str2[$i]];
+    }
+
+    return $res;
+}
+
+
+print_r( zipper_str('bonjours', 'aurevoir', true) ) ;
+
+echo PHP_EOL;
+```
+
 ## Exercice Fizzbuzz
 
 En utilisant l'expression match de PHP implémentez l'algorithme de FizzBuzz, aidez-vous de la remarque ci-après :
