@@ -200,7 +200,7 @@ increment_static(); // 2
 increment_static(); // 3
 increment_static(); // 4
 
-// sans static $a = 0 la fonction affiche 1 tout le temps
+// sans static $a = 0 la fonction affiche 1 tout le temps elle ne garde pas la mémoire du symbole $a entre les différents appels
 // increment_static(); // 1
 // increment_static(); // 1
 // increment_static(); // 1
@@ -218,6 +218,8 @@ rang 2 -> 1
 rang 3 -> 2
 rang 4 -> 3
 rang 5 -> 5
+rang 6 -> 8
+rang 7 -> 13
 ...
 ```
 
