@@ -398,6 +398,8 @@ $message[0] = "B";
 echo $message; // Bar
 ```
 
+**Les types de variables sont définies à l'assignation et un type peut changer dans un script PHP. Attention à ne pas confondre le passage de paramètre à une fonction qui lui est déterministe.**
+
 ### Modification des types
 
 On peut modifier le type d'une variable en utilisant la syntaxe suivante :
