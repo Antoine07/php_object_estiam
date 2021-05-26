@@ -437,6 +437,8 @@ function sayHello(){
 
 ### Typage des arguments et du retour d'une fonction
 
+Retour de typage et typage conditionnel à partir de la version 8 de PHP.
+
 Nous pouvons également typer les arguments ainsi que les valeurs de retour. Vous pouvez également déclarer un ensemble de types en les séparant par une barre verticale, le caractère "pipe" : | .
 
 ```php
@@ -471,9 +473,30 @@ foo( numbers:[1, 2, 3], a: 2, c: 8);
 
 Créez une fonction qui prend en argument un tableau de nombres et une valeur entière donnant la position pour spliter le tableau en deux. Si la valeur de la position est supérieure à la longueur du tableau, retournez le.
 
-Vous pouvez utiliser la fonction array_shift de PHP pour dépiler le tableau.
+Vous pouvez utiliser la fonction array_shift de PHP pour dépiler (comme une pile d'assiètes que vous dépilez) le tableau.
 
 ```php
+$tab = [5,7,8];
+array_shift($tab);// 5
+array_shift($tab);// 7
+array_shift($tab);// 8
+array_shift($tab);// undefined
+```
+
+On a une fonction qui fait la même chose mais en dépilant dans l'autre sens : array_pop
+
+```php
+$tab = [5,7,8];
+array_pop($tab);// 8
+array_pop($tab);// 7
+array_pop($tab);// 5
+array_pop($tab);// undefined
+```
+
+Voici la fonction que vous devez implémenter :
+
+```php
+// on utilise ici des variables nommées attention cela ne marche qu'à partir de la version 8 de PHP.
 split_array(numbers: [4,6,9, 17], pos : 2);
 // [ [4,6,9] , [17] ]
 ```
