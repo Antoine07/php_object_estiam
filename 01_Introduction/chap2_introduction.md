@@ -551,6 +551,66 @@ mapped(numbers: ['x' => 1,'y' => 2,'z' => 3,'t' => 7], glue : ', ', symbol : "="
 // x = 1, y = 2, z = 3, t = 7
 ```
 
+### Correction
+
+```php
+
+function mapped( array $numbers, string $glue = ',' , string $symbol = '='){
+
+    $str = '';
+    $count = count($numbers) ;
+
+    foreach($numbers as $k => $v){
+        $count--;
+        if($count == 0){
+            $str = $str . "$k $symbol $v" ;
+        }else{
+            $str = $str . "$k $symbol $v $glue" ; // x = 1, y = 2, z = 3
+        }
+    }
+
+    return $str;
+}
+
+
+
+function mapped_v2( array $numbers, string $glue = ', ' , string $symbol = '='){
+
+    $str = '';
+    $count = count($numbers) ;
+
+    foreach($numbers as $k => $v){
+        // --$count fait la décrémentation avant comparaison
+        // $count-- fait la décrémentation et après comparaison
+        $str .= "$k $symbol $v" . ( (--$count == 0) ?  '' : $glue );
+    }
+
+    return $str;
+}
+
+print_r( mapped(['x' => 1,'y' => 2,'z' => 3,'t' => 7]) );
+
+echo PHP_EOL ;
+
+print_r( mapped_v2(['x' => 1,'y' => 2,'z' => 3,'t' => 7]) );
+
+echo PHP_EOL ;
+
+function increment(){
+
+    $count = 10;
+
+    // pour un retourne vous pouvez également imposer la pp de l'incrémentation avant le retour 
+    // comme pour la comparaison 
+    // return $count++; retournera 10 
+    // return ++$count; retounera 11
+    return ++$count;
+}
+
+echo increment();
+echo PHP_EOL ;
+```
+
 ### Exercice zip 
 
 Créez une fonction permettant de regrouper terme à terme les éléments de deux tableaux de dimension 1. Elle retournera un tableau de dimension 2 regroupant les éléments.
