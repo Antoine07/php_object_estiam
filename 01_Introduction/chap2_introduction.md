@@ -425,6 +425,15 @@ Une fonction n'a pas besoin d'être définie avant d'être utilisée. Sauf si vo
 
 Vous pouvez définir une fonction dans une fonction.
 
+```php
+
+sayHello();
+
+function sayHello(){
+    return "Hello World !" ;
+}
+```
+
 ### Typage des arguments et du retour d'une fonction
 
 Nous pouvons également typer les arguments ainsi que les valeurs de retour. Vous pouvez également déclarer un ensemble de types en les séparant par une barre verticale, le caractère "pipe" : | .
