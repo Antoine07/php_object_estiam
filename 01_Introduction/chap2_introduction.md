@@ -551,6 +551,21 @@ mapped(numbers: ['x' => 1,'y' => 2,'z' => 3,'t' => 7], glue : ', ', symbol : "="
 // x = 1, y = 2, z = 3, t = 7
 ```
 
+Indication : pour parcourir un tableau avec des clés non numérique et des valeurs, vous utiliserez la syntaxe foreach suivante :
+
+```php
+$tab = ['x' => 1,'y' => 2,'z' => 3,'t' => 7] ;
+
+foreach($tab as $val){
+    echo $val; // 1, 2, 3 et 7
+}
+
+foreach($tab as $key => $val){
+    echo $key, $value; //x  1, y 2, z 3 et t 7
+}
+
+```
+
 ### Exercice zip 
 
 Créez une fonction permettant de regrouper terme à terme les éléments de deux tableaux de dimension 1. Elle retournera un tableau de dimension 2 regroupant les éléments.
