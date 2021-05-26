@@ -613,7 +613,7 @@ echo PHP_EOL ;
 
 ### Exercice zip 
 
-Créez une fonction permettant de regrouper terme à terme les éléments de deux tableaux de dimension 1. Elle retournera un tableau de dimension 2 regroupant les éléments.
+Créez une fonction permettant de regrouper terme à terme les éléments de deux tableaux de dimension 1 de même longueur. Elle retournera un tableau de dimension 2 regroupant les éléments.
 
 ```php
 var_dump(zipper(tab1 : [1,2,3], tab2: [4,5,6]));
