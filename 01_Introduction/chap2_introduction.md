@@ -291,7 +291,7 @@ $a = 1_234_567; // un nombre décimal (à partir de PHP 7.4.0)
 
 float et double
 
-- Chaînes de caractères
+- Chaînes de caractères : **string**
 
 Cote simple ou double. Pour les cotes doubles PHP interprètera les caractères d'échappement et les variables dans la chaîne de caractères.
 
