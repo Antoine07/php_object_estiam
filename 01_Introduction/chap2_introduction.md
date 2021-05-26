@@ -620,6 +620,34 @@ var_dump(zipper(tab1 : [1,2,3], tab2: [4,5,6]));
 // [[1,4], [2,5], [3, 6]]
 ```
 
+### Correction
+
+```php
+function zipper(array $tab1, array $tab2): array
+{
+    if (count($tab1) != count($tab1)) {
+        return [];
+    }
+
+    $res = [];
+
+    for($i = 0; $i < count($tab1) ; $i++){
+        $res[] = [$tab1[$i], $tab2[$i]];
+    }
+
+    return $res;
+}
+
+print_r(zipper(tab1: [1, 2, 3], tab2: [4, 5, 6]));
+```
+
+Maintenant faite la même fonction qui prend deux chaînes de caractères de même dimension et qui zip les lettres entre elles.
+
+```php
+zipper_str('bonjours', 'aurevoir'); // [['b', 'a'], ['o', 'u'], ...] 
+
+```
+
 ## Exercice Fizzbuzz
 
 En utilisant l'expression match de PHP implémentez l'algorithme de FizzBuzz, aidez-vous de la remarque ci-après :
