@@ -429,6 +429,7 @@ Vous pouvez définir une fonction dans une fonction.
 
 sayHello();
 
+// les fonctions en PHP sont compilées en premier
 function sayHello(){
     return "Hello World !" ;
 }
