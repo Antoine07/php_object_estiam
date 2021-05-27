@@ -245,7 +245,7 @@ class Product{
 
     public function setName(string $name){
         if( strlen($name) == 0 ){
-            return; 
+            return ; 
         }
 
         $this->name = $name;
@@ -282,12 +282,17 @@ Les données (attributs) ne peuvent être modifiées dans le script courant dire
 
 Une boîte noire dans un avion par exemple aura un programme possédant des attributs privés et des méthodes publiques; pour modifier les attributs privés, si un événement exceptionnel dans l'avion se produit, seuls les méthodes publiques peuvent le faire.
 
-- Accéder aux attributs: accesseur ou getter
+- Accéder aux attributs variables privées de la classe : accesseur ou getter
 
-- mutateur ou setter
+- mutateur ou setter public => accéder à l'extérieur de la classe
 
-- accesseur ou getter
+- accesseur ou getter public =>
 
+### Exercice Products avec total
+
+1. Créez plusieurs produits (nom & prix) que vous placerez dans un tableau. Puis faite le total des prix des produits à partir du tableau dans lequel vous aurez placé les produits.
+
+2. Créez une classe Cart qui récupère les produits commandés. Créez une méthode total qui retourne le prix total des produits commandés. Les produits seront également placés dans un tableau de la classe Cart.
 
 ## Visibilité d'un attribut ou d'une méthode
 
