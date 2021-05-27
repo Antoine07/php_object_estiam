@@ -294,6 +294,44 @@ Une boîte noire dans un avion par exemple aura un programme possédant des attr
 
 2. Créez une classe Cart qui récupère les produits commandés. Créez une méthode total qui retourne le prix total des produits commandés. Les produits seront également placés dans un tableau de la classe Cart.
 
+### Correction
+
+```php
+
+// classe Product voir plus haut
+
+class Cart{
+
+    private array $products = [];
+
+    public function add(Product $product):void{
+        $this->products[] = $product;
+    }
+
+    public function total():float{
+        $sum = 0;
+        foreach($this->products as $product){
+            $sum += $product->getPrice();
+        }
+
+        return $sum;
+    }
+}
+
+$cart = new Cart;
+
+$cart->add($apple);
+$cart->add($orange);
+$cart->add($raspberry);
+
+echo $cart->total();
+echo PHP_EOL;
+
+
+```
+
+3. Ajoutez à la méthode add qui permet pour l'instant d'ajouter un produit dans le panier, un paramètre quantity qui définiera la quantité commandée du produit. La méthode total prendra en considération les quantités commandées de chaque produit.
+
 ## Visibilité d'un attribut ou d'une méthode
 
 Si un membre de la classe est privé il est **impossible** d'y accéder à l'extérieur de la classe, c'est-à-dire à partir de l'objet dans le script courant.
