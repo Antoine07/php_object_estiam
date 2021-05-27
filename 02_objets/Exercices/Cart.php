@@ -62,7 +62,6 @@ echo PHP_EOL; // constante PHP saut de ligne dans la console "\n"
 class Cart{
 
     private array $products = [];
-
     private float $tva = 0.2;
 
     public function add(Product $product, int $quantity ):void{
@@ -78,7 +77,8 @@ class Cart{
             // list($product, $quantity) =  [$raspberry, 10]; // $product = $raspberry; $quantity = 10
             list($product, $quantity) = $command;
 
-            $sum +=  $product->getPrice() * $quantity;
+            $sum +=  $product->getPrice() * $quantity * (1 + $this->tva);
+            // $p * ( 1 + $tva) = $p + $p * $tva 
         }
 
         return $sum;
