@@ -24,6 +24,44 @@ La classe représente l'implémentation des attributs (variables de la classe) e
 Pour rendre "concrète" son utilisation, on fera une instance de la classe Persona.
 
 ```php
+
+// d'abstrait la classe
+class Persona{
+
+    private $force ;
+    private $secret = "my secret";
+
+    // méthode magique elles commencent toutes par des __ 
+    // constructeur permet d'initialiser nos variables
+    public function __construct(
+        $force, $secret
+    ){
+        $this->force = $force; // $this représente l'instance de la classe == object
+        $this->secret = $secret;
+    }
+
+    // public == on peut accéder à la méthode de l'extérieur de la classe
+    public function fight(){
+        echo "missile";
+    }
+
+    // une méthode permettant d'accéder à la force de votre Persona
+}
+
+// concret 
+
+// le constructeur si il a des paramètres ils seront à placer dans les parenthèses de la classe
+$persona_01 = new Persona(10, 123);
+
+print_r($persona_01);
+print_r($persona_01->fight()); // méhode publique
+
+
+$persona_02 = new Persona(11, 321);
+
+print_r($persona_02);
+print_r($persona_02->fight());
+// version 8 on peut écrire les variables de la classe comme suit
 class Persona{
 
     public function __construct(
@@ -36,6 +74,12 @@ class Persona{
     }
 }
 ``` 
+
+### Exercice
+
+- Créez la méthode permettant d'afficher la variable force.
+- Créez la méthode permettant d'afficher la variable secret. 
+
 
 Un objet est une instance de classe, c'est une variable dans le script courant.
 
