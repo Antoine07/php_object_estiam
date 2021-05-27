@@ -217,9 +217,56 @@ class Triangle{
 }
 ```
 
-### Exercice Procut
+### Exercice Procduct
 
 Créez la classe Product elle possède les variables : name et price. Créez quelques produits à partir de cette classe.
+
+### Correction
+
+```php
+
+class Product{
+    private string $name;
+    private float $price;
+
+    // appelé automatiquement à l'instanciation de la classe
+    public function __construct(string $name, float $price){
+        $this->setName($name);
+        $this->setPrice($price);
+    }
+
+    public function setPrice(float $price){
+        if( $price < 0 ){
+            return; 
+        }
+
+        $this->price = $price;
+    }
+
+    public function setName(string $name){
+        if( strlen($name) == 0 ){
+            return; 
+        }
+
+        $this->name = $name;
+    }
+
+    public function getPrice(){
+        return $this->price;
+    }
+
+     public function getName(){
+        return $this->name;
+    }
+
+}
+
+$p1 = new Product('apple', 0.5);
+// $p1->price; // $p1 <=> $this l'instance c'est privée
+$p1->setPrice(0.75);
+$p1->setName('Apple');
+
+```
 
 Affichez leurs caractéristiques en console.
 
