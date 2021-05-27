@@ -304,14 +304,15 @@ class Cart{
 
     private array $products = [];
 
-    public function add(Product $product):void{
-        $this->products[] = $product;
+    public function add(Product $product, int $quantity ):void{
+        $this->products[$quantity] = $product ;
     }
 
     public function total():float{
         $sum = 0;
-        foreach($this->products as $product){
-            $sum += $product->getPrice();
+        // key => value on peut leur donner les noms que l'on veut !
+        foreach($this->products as $quantity => $product){
+            $sum += $quantity * $product->getPrice();
         }
 
         return $sum;
@@ -320,9 +321,9 @@ class Cart{
 
 $cart = new Cart;
 
-$cart->add($apple);
-$cart->add($orange);
-$cart->add($raspberry);
+$cart->add($apple, 8);
+$cart->add($orange, 10);
+$cart->add($raspberry, 10);
 
 echo $cart->total();
 echo PHP_EOL;
@@ -331,6 +332,50 @@ echo PHP_EOL;
 ```
 
 3. Ajoutez à la méthode add qui permet pour l'instant d'ajouter un produit dans le panier, un paramètre quantity qui définiera la quantité commandée du produit. La méthode total prendra en considération les quantités commandées de chaque produit.
+
+### Correction
+
+```php
+
+class Cart{
+
+    private array $products = [];
+
+    private float $tva = 0.2;
+
+    public function add(Product $product, int $quantity ):void{
+        $this->products[] = [ $product, $quantity ]; // [[$apple, 8], [$oragne, 10], [$raspberry, 10]]
+    }
+
+    public function total():float{
+        $sum = 0;
+        // key => value on peut leur donner les noms que l'on veut !
+        foreach($this->products as $command){
+            // list($product, $quantity) = [$apple, 8];
+            // list($product, $quantity) = [$oragne, 10];
+            // list($product, $quantity) =  [$raspberry, 10]; // $product = $raspberry; $quantity = 10
+            list($product, $quantity) = $command;
+
+            $sum +=  $product->getPrice() * $quantity;
+        }
+
+        return $sum;
+    }
+}
+
+$cart = new Cart;
+
+$cart->add($apple, 8);
+$cart->add($orange, 10);
+$cart->add($raspberry, 10);
+
+echo $cart->total();
+echo PHP_EOL;
+
+
+```
+
+4. On 
 
 ## Visibilité d'un attribut ou d'une méthode
 

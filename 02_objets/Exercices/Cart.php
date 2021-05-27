@@ -63,14 +63,22 @@ class Cart{
 
     private array $products = [];
 
-    public function add(Product $product):void{
-        $this->products[] = $product;
+    private float $tva = 0.2;
+
+    public function add(Product $product, int $quantity ):void{
+        $this->products[] = [ $product, $quantity ]; // [[$apple, 8], [$oragne, 10], [$raspberry, 10]]
     }
 
     public function total():float{
         $sum = 0;
-        foreach($this->products as $product){
-            $sum += $product->getPrice();
+        // key => value on peut leur donner les noms que l'on veut !
+        foreach($this->products as $command){
+            // list($product, $quantity) = [$apple, 8];
+            // list($product, $quantity) = [$oragne, 10];
+            // list($product, $quantity) =  [$raspberry, 10]; // $product = $raspberry; $quantity = 10
+            list($product, $quantity) = $command;
+
+            $sum +=  $product->getPrice() * $quantity;
         }
 
         return $sum;
@@ -79,9 +87,9 @@ class Cart{
 
 $cart = new Cart;
 
-$cart->add($apple);
-$cart->add($orange);
-$cart->add($raspberry);
+$cart->add($apple, 8);
+$cart->add($orange, 10);
+$cart->add($raspberry, 10);
 
 echo $cart->total();
 echo PHP_EOL;
