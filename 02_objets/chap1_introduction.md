@@ -55,12 +55,15 @@ $persona_01 = new Persona(10, 123);
 
 print_r($persona_01);
 print_r($persona_01->fight()); // méhode publique
+echo PHP_EOL;
 
 
 $persona_02 = new Persona(11, 321);
 
 print_r($persona_02);
 print_r($persona_02->fight());
+echo PHP_EOL;
+
 // version 8 on peut écrire les variables de la classe comme suit
 class Persona{
 
@@ -80,6 +83,70 @@ class Persona{
 - Créez la méthode permettant d'afficher la variable force.
 - Créez la méthode permettant d'afficher la variable secret. 
 
+
+### Correction
+
+```php
+
+
+// d'abstrait la classe
+class Persona{
+
+    private $force ;
+    private $secret = "my secret";
+
+    // méthode magique elles commencent toutes par des __ 
+    // constructeur permet d'initialiser nos variables
+    public function __construct(
+        $force, $secret
+    ){
+        $this->force = $force; // $this représente l'instance de la classe == object
+        $this->secret = $secret;
+    }
+
+    // public == on peut accéder à la méthode de l'extérieur de la classe
+    public function fight(){
+        echo "missile";
+    }
+
+    // une méthode permettant d'accéder à la force de votre Persona
+
+    public function getForce(){
+
+        return $this->force; // même si c'est privée elle est accessible par la classe et surtout la fonction 
+        // getForce elle est publique donc elle sera accessible à l'extérieur à partir de l'objet
+    }
+
+    public function getSecret(){
+
+        return $this->secret;
+    }
+}
+
+// concret 
+
+// le constructeur si il a des paramètres ils seront à placer dans les parenthèses de la classe
+$persona_01 = new Persona(10, 123);
+
+print_r($persona_01);
+print_r($persona_01->fight()); // méhode publique
+echo PHP_EOL;
+print_r($persona_01->getForce()); // méhode publique
+echo PHP_EOL;
+print_r($persona_01->getSecret()); // méhode publique
+echo PHP_EOL;
+
+$persona_02 = new Persona(11, 321);
+
+print_r($persona_02);
+echo PHP_EOL;
+print_r($persona_02->fight());
+echo PHP_EOL;
+print_r($persona_02->getForce()); // méhode publique
+echo PHP_EOL;
+print_r($persona_02->getSecret()); // méhode publique
+echo PHP_EOL;
+```
 
 Un objet est une instance de classe, c'est une variable dans le script courant.
 
@@ -127,7 +194,7 @@ class Square{
 
 ## Getter et setter
 
-Des méthodes publiques particulières sont implémentées dans les classes, on les appelle les getter et setter, respectivement accesseur et mutateur. Ils permettent donc le retour de valeur ou la modification de valeur dans le script courant de manière standard. La méthode getBase et setBase de la classe Triangle sont respectivement l'accesseur et le mutateur de la variable de classe base privée. Chaque variable théoriquement aura son getter et setter :
+Des méthodes publiques particulières sont implémentées dans les classes, on les appelle les getter et setter, respectivement accesseur et mutateur. Ils permettent donc le retour de valeur ou la modification de valeur dans le script courant de manière standard. La méthode getBase et setBase de la classe Triangle sont respectivement l'accesseur et le mutateur de la variable de classe **base** privée. Chaque variable théoriquement aura son getter et setter et donc vous laisserez les variables privées (bonne pratique) :
 
 
 ```php
@@ -139,12 +206,22 @@ class Triangle{
         return $this->base;
     }
 
-     public function setBase(float $base):void{
+    // les modifications seront faites de manières logiques pour ne pas faire n'importe quoi avec la variable
+    public function setBase(float $base):void{
+        if($base < 0){
+            return ;
+        }
+    
         $this->base = $base;
     }
 }
-
 ```
+
+### Exercice Procut
+
+Créez la classe Product elle possède les variables : name et price. Créez quelques produits à partir de cette classe.
+
+Affichez leurs caractéristiques en console.
 
 ### Principe d'encapsulation
 
