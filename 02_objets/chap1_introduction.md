@@ -391,6 +391,10 @@ Pour qu'une méthode puisse manipuler une variable de classe à l'intérieur de 
 $this;
 ```
 
+### Exercice le plus grand
+
+Créez une classe Biggest. Elle prend une liste de nombre et retourne le nombre le plus grand.
+
 C'est une référence à une instance unique de la classe dans le script.
 
 ## Exercice Calculator
