@@ -397,6 +397,55 @@ Créez une classe Biggest. Elle prend une liste de nombre et retourne le nombre 
 
 C'est une référence à une instance unique de la classe dans le script.
 
+```php
+<?php
+
+class Biggest{
+
+    private array $numbers ;
+    
+    public function __construct(array $numbers)
+    {
+        $this->numbers = $numbers;
+    }
+
+    public function get():float{
+
+        $biggest = array_shift($this->numbers);
+
+        foreach($this->numbers as $number){
+            if($number > $biggest) $biggest = $number; // le if n'a pas besoin d'accole si on retourne qu'une seule chose
+        }
+
+        return $biggest;
+    }
+
+    /**
+     * Get the value of numbers
+     */ 
+    public function getNumbers():array
+    {
+        return $this->numbers;
+    }
+
+    /**
+     * Set the value of numbers
+     *
+     * @return  self
+     */ 
+    public function setNumber(float $number):void
+    {
+        $this->numbers[] = $number;
+
+    }
+}
+
+$biggest = new Biggest([7,19, 10, 17, 2, 0, 15]);
+
+echo $biggest->get();
+echo PHP_EOL;
+```
+
 ## Exercice Calculator
 
 Créez une classe Calculator. Cette classe implémentera les spécificités suivantes :
